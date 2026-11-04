@@ -1,4 +1,4 @@
-import express from "express";
+import express, { type Express } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import { getCorsOptions } from "./config/cors.js";
@@ -7,7 +7,7 @@ import apiRoutes from "./routes/index.js";
 import { getAuth } from "./auth/auth.js";
 import { toNodeHandler } from "better-auth/node";
 
-export function createApp() {
+export function createApp(): Express {
   const app = express();
 
   // Security headers
