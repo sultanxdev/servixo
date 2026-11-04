@@ -1,0 +1,22 @@
+{
+  "name": "servixo-api",
+  "main": "src/worker.ts",
+  "compatibility_date": "2024-12-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "NODE_ENV": "production"
+  }
+  // Uncomment and configure when ready to deploy
+  // "hyperdrive": [
+  //   {
+  //     "binding": "HYPERDRIVE",
+  //     "id": "your-hyperdrive-id"
+  //   }
+  // ],
+  // "r2_buckets": [
+  //   {
+  //     "binding": "R2_BUCKET",
+  //     "bucket_name": "servixo-documents"
+  //   }
+  // ]
+}
