@@ -25,7 +25,7 @@ export async function authenticate(
     req.session = session.session as unknown as Express.Request["session"];
 
     next();
-  } catch (error) {
+  } catch {
     res.status(401).json({
       success: false,
       message: "Invalid or expired session",

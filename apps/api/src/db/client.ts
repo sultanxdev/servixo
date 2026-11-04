@@ -1,5 +1,5 @@
 import { drizzle } from "drizzle-orm/neon-serverless";
-import { neon, Pool } from "@neondatabase/serverless";
+import { Pool } from "@neondatabase/serverless";
 import * as schema from "./schema/index.js";
 
 let dbInstance: ReturnType<typeof createDb> | null = null;
