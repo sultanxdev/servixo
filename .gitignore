@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+out/
+.next/
+.turbo/
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.dev.vars
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Testing
+coverage/
+
+# Cloudflare
+.wrangler/
+.mf/
+
+# Drizzle
+drizzle/meta/
+
+# Misc
+*.tgz
+.cache/

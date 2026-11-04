@@ -1,0 +1,20 @@
+{
+  "name": "servixo",
+  "private": true,
+  "scripts": {
+    "dev:web": "pnpm --filter @servixo/web dev",
+    "dev:api": "pnpm --filter @servixo/api dev",
+    "build:web": "pnpm --filter @servixo/web build",
+    "build:api": "pnpm --filter @servixo/api build",
+    "typecheck": "pnpm -r run typecheck",
+    "lint": "pnpm -r run lint",
+    "dev": "pnpm run dev:web & pnpm run dev:api",
+    "build": "pnpm -r run build",
+    "clean": "pnpm -r run clean"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@10.13.1"
+}
