@@ -1,0 +1,2 @@
+// Earnings module
+export {};

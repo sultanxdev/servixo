@@ -1,0 +1,2 @@
+// Assignments module
+export {};
