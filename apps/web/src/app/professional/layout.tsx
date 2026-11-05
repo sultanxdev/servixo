@@ -74,3 +74,4 @@ export default function ProfessionalLayout({ children }: { children: React.React
     </div>
   );
 }
+

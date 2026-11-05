@@ -49,3 +49,4 @@ export class R2StorageService {
     return `professionals/${professionalId}/documents/${documentId}/${fileName}`;
   }
 }
+

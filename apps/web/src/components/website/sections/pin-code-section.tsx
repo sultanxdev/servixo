@@ -64,3 +64,4 @@ export function PinCodeSection() {
     </section>
   );
 }
+

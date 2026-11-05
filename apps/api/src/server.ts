@@ -11,3 +11,4 @@ app.listen(env.PORT, () => {
   console.log(`🔐 Auth endpoint: http://localhost:${env.PORT}/api/auth`);
   console.log(`🌍 Environment: ${env.NODE_ENV}`);
 });
+

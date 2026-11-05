@@ -22,3 +22,4 @@ export function ServiceCard({ icon: Icon, name, description }: ServiceCardProps)
     </Card>
   );
 }
+

@@ -35,3 +35,4 @@ export function errorHandler(
     ...(isDev() && { stack: err.stack }),
   });
 }
+

@@ -10,3 +10,4 @@ export default function WebsiteLayout({ children }: { children: React.ReactNode 
     </div>
   );
 }
+

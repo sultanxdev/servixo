@@ -48,3 +48,4 @@ export function PlanCard({ name, price, period, description, features, popular }
     </Card>
   );
 }
+
