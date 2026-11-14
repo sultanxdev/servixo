@@ -45,55 +45,54 @@ export function FaqSection() {
   };
 
   return (
-    <section id="faqs" className="w-full py-8 lg:py-space-xl">
-      <div className="max-w-[960px] mx-auto px-4 lg:px-gutter">
-        {/* Section Header */}
-        <div className="text-center mb-6 lg:mb-space-xl">
-          <span className="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold mb-1.5 lg:mb-2 block">
-            Clear Answers
-          </span>
-          <h2 className="font-headline-md lg:font-headline-lg text-headline-md lg:text-headline-lg text-on-surface font-bold tracking-tight mb-2">
-            Frequently Asked Questions
-          </h2>
-          <p className="font-body-sm lg:font-body-md text-body-sm lg:text-body-md text-on-surface-variant leading-relaxed">
-            Everything you need to know about our subscription model, visit allocation, and service professionals.
-          </p>
-        </div>
-
-        {/* Accordion Container */}
-        <div className="flex flex-col gap-2.5 lg:gap-3">
-          {faqs.map((faq, idx) => {
-            const isOpen = openIndex === idx;
-            return (
-              <div
-                key={idx}
-                className="bg-surface-container-lowest rounded-xl shadow-xs border border-outline-variant/30 overflow-hidden transition-all duration-200"
-              >
-                <button
-                  type="button"
-                  onClick={() => toggleFaq(idx)}
-                  className="w-full p-4 lg:p-space-md text-left flex items-center justify-between gap-4 font-headline-sm text-[16px] lg:text-headline-sm font-bold text-on-surface hover:text-primary transition-colors"
-                >
-                  <span>{faq.q}</span>
-                  <span
-                    className={`material-symbols-outlined text-[20px] text-primary shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-180" : "rotate-0"
-                    }`}
-                  >
-                    expand_more
-                  </span>
-                </button>
-
-                {isOpen && (
-                  <div className="px-4 lg:px-space-md pb-4 lg:pb-space-md font-body-sm lg:font-body-md text-body-sm lg:text-body-md text-on-surface-variant leading-relaxed animate-in fade-in duration-150 border-t border-outline-variant/20 pt-3">
-                    {faq.a}
-                  </div>
-                )}
+          <section id="faqs" className="w-full py-8 lg:py-space-xl">
+            <div className="max-w-[960px] mx-auto px-4 lg:px-gutter">
+              {/* Section Header */}
+              <div className="text-center mb-6 lg:mb-space-xl">
+                <span className="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold mb-1.5 lg:mb-2 block">
+                  Clear Answers
+                </span>
+                <h2 className="font-headline-md lg:font-headline-lg text-headline-md lg:text-headline-lg text-on-surface font-bold tracking-tight mb-2">
+                  Frequently Asked Questions
+                </h2>
+                <p className="font-body-sm lg:font-body-md text-body-sm lg:text-body-md text-on-surface-variant leading-relaxed">
+                  Everything you need to know about our subscription model, visit allocation, and service professionals.
+                </p>
               </div>
-            );
+
+                      {/* Accordion Container */}
+        <div className="flex flex-col gap-2.5 lg:gap-3">
+                      {faqs.map((faq, idx) => {
+                        const isOpen = openIndex === idx;
+                        return (
+                          <div
+                            key={idx}
+                            className="bg-surface-container-lowest rounded-xl shadow-xs border border-outline-variant/30 overflow-hidden transition-all duration-200"
+                          >
+                    <button
+                      type="button"
+                      onClick={() => toggleFaq(idx)}
+                      className="w-full p-4 lg:p-space-md text-left flex items-center justify-between gap-4 font-headline-sm text-[16px] lg:text-headline-sm font-bold text-on-surface hover:text-primary transition-colors"
+                    >
+                      <span>{faq.q}</span>
+                      <span
+                        className={`material-symbols-outlined text-[20px] text-primary shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : "rotate-0"
+                          }`}
+                      >
+                        expand_more
+                      </span>
+                    </button>
+
+                    {isOpen && (
+                      <div className="px-4 lg:px-space-md pb-4 lg:pb-space-md font-body-sm lg:font-body-md text-body-sm lg:text-body-md text-on-surface-variant leading-relaxed animate-in fade-in duration-150 border-t border-outline-variant/20 pt-3">
+                        {faq.a}
+                      </div>
+                    )}
+                  </div>
+                );
           })}
-        </div>
-      </div>
-    </section>
-  );
+              </div>
+            </div>
+          </section>
+          );
 }
