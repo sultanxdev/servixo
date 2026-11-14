@@ -2,20 +2,17 @@
   "name": "servixo",
   "private": true,
   "scripts": {
-    "dev:web": "pnpm --filter @servixo/web dev",
-    "dev:api": "pnpm --filter @servixo/api dev",
-    "build:web": "pnpm --filter @servixo/web build",
-    "build:api": "pnpm --filter @servixo/api build",
-    "typecheck": "pnpm -r run typecheck",
-    "lint": "pnpm -r run lint",
-    "dev": "pnpm run dev:web & pnpm run dev:api",
-    "build": "pnpm -r run build",
-    "clean": "pnpm -r run clean"
+    "dev:backend": "pnpm --dir backend dev",
+    "dev:frontend": "pnpm --dir frontend dev",
+    "build:backend": "pnpm --dir backend build",
+    "build:frontend": "pnpm --dir frontend build",
+    "typecheck:backend": "pnpm --dir backend typecheck",
+    "typecheck:frontend": "pnpm --dir frontend typecheck",
+    "lint:backend": "pnpm --dir backend lint",
+    "lint:frontend": "pnpm --dir frontend lint",
+    "install:all": "pnpm --dir backend install && pnpm --dir frontend install"
   },
   "engines": {
-    "node": ">=20.0.0",
-    "pnpm": ">=9.0.0"
-  },
-  "packageManager": "pnpm@10.13.1"
+    "node": ">=20.0.0"
+  }
 }
-
