@@ -1,5 +1,5 @@
 {
-  "name": "@servixo/api",
+  "name": "servixo-backend",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -19,25 +19,24 @@
     "@hono/node-server": "^1.13.0",
     "@neondatabase/serverless": "^0.10.0",
     "better-auth": "^1.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.0",
     "drizzle-orm": "^0.39.0",
     "express": "^5.1.0",
     "helmet": "^8.0.0",
-    "cors": "^2.8.5",
-    "zod": "^3.24.0",
-    "dotenv": "^16.4.0",
-    "@servixo/contracts": "workspace:*"
+    "zod": "^3.24.0"
   },
   "devDependencies": {
-    "@types/express": "^5.0.0",
+    "@cloudflare/workers-types": "^4.0.0",
+    "@eslint/js": "^9.0.0",
     "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
     "@types/node": "^22.0.0",
     "drizzle-kit": "^0.30.0",
+    "eslint": "^9.0.0",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0",
-    "wrangler": "^4.0.0",
-    "@cloudflare/workers-types": "^4.0.0",
-    "eslint": "^9.0.0",
-    "@eslint/js": "^9.0.0",
-    "typescript-eslint": "^8.0.0"
+    "typescript-eslint": "^8.0.0",
+    "wrangler": "^4.0.0"
   }
 }
