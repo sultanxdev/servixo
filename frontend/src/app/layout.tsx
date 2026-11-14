@@ -3,7 +3,7 @@ import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ThemeSwitcher } from "@/components/theme-switcher";
+import { siteConfig } from "@/config/site.config";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -20,11 +20,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Servixo - Home Services Platform | Your Home. Your Services. All in One Plan.",
+  title: `${siteConfig.brand.name} - ${siteConfig.brand.tagline}`,
   description:
     "India's premier residential care and verified technician subscription club. Book trusted home services, manage subscriptions, and get certified professional assistance.",
   icons: {
-    icon: "/logo/logo.png",
+    icon: siteConfig.brand.logoUrl,
     apple: "/logo/logo-square.png",
   },
 };
@@ -48,7 +48,6 @@ export default function RootLayout({
         <ThemeProvider>
           <Providers>
             {children}
-            <ThemeSwitcher />
           </Providers>
         </ThemeProvider>
       </body>
