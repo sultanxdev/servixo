@@ -2,10 +2,13 @@
   "name": "servixo",
   "private": true,
   "scripts": {
+    "build": "pnpm --dir frontend build",
     "dev:backend": "pnpm --dir backend dev",
     "dev:frontend": "pnpm --dir frontend dev",
     "build:backend": "pnpm --dir backend build",
     "build:frontend": "pnpm --dir frontend build",
+    "deploy:backend": "npx wrangler deploy --config backend/wrangler.jsonc",
+    "deploy:frontend": "npx wrangler pages deploy frontend/out",
     "typecheck:backend": "pnpm --dir backend typecheck",
     "typecheck:frontend": "pnpm --dir frontend typecheck",
     "lint:backend": "pnpm --dir backend lint",
