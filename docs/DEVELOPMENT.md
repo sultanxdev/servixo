@@ -3,7 +3,7 @@
 ## Prerequisites
 
 - **Node.js** >= 20
-- **PNPM** >= 9
+- **PNPM** >= 9 (or NPM)
 - **PostgreSQL** database (local or [Neon](https://neon.tech))
 
 ## Initial Setup
@@ -13,127 +13,133 @@
 git clone <repo-url>
 cd servixo
 
-# 2. Install all dependencies
-pnpm install
+# 2. Install dependencies
+pnpm install:all
+# or install in each folder:
+# cd backend && pnpm install
+# cd ../frontend && pnpm install
 
 # 3. Set up backend environment
-cp .env.example apps/api/.env
-# Edit apps/api/.env with your database URL and secrets
+cp backend/.env.example backend/.env
+# Edit backend/.env with your database URL and secrets
 
 # 4. Set up frontend environment
-cp apps/web/.env.example apps/web/.env.local
-# Edit apps/web/.env.local if needed
+cp frontend/.env.example frontend/.env.local
+# Edit frontend/.env.local if needed
 ```
 
 ## Running Locally
 
 ### Backend (port 3001)
 ```bash
-pnpm dev:api
+cd backend
+pnpm dev
+
+# Or from root:
+pnpm dev:backend
 ```
 
 ### Frontend (port 3000)
 ```bash
-pnpm dev:web
-```
+cd frontend
+pnpm dev
 
-### Both simultaneously
-```bash
-# In two terminals, or use:
-pnpm dev:api &
-pnpm dev:web
+# Or from root:
+pnpm dev:frontend
 ```
 
 ## Database
 
 ```bash
+cd backend
+
 # Push schema to database (development)
-pnpm --filter @servixo/api db:push
+pnpm db:push
 
 # Generate migration files
-pnpm --filter @servixo/api db:generate
+pnpm db:generate
 
 # Run migrations
-pnpm --filter @servixo/api db:migrate
+pnpm db:migrate
 
 # Open Drizzle Studio (GUI)
-pnpm --filter @servixo/api db:studio
+pnpm db:studio
 ```
 
 ## Type Checking
 
 ```bash
-# All packages
-pnpm typecheck
+# From root
+pnpm typecheck:backend
+pnpm typecheck:frontend
 
-# Specific package
-pnpm --filter @servixo/web typecheck
-pnpm --filter @servixo/api typecheck
+# Or inside directories
+cd backend && pnpm typecheck
+cd frontend && pnpm typecheck
 ```
 
 ## Linting
 
 ```bash
-# All packages
-pnpm lint
+# From root
+pnpm lint:backend
+pnpm lint:frontend
 
-# Specific package
-pnpm --filter @servixo/web lint
-pnpm --filter @servixo/api lint
+# Or inside directories
+cd backend && pnpm lint
+cd frontend && pnpm lint
 ```
 
 ## Building
 
 ```bash
 # Frontend (static export to out/)
-pnpm build:web
+cd frontend
+pnpm build
 
 # Backend (compile to dist/)
-pnpm build:api
+cd backend
+pnpm build
 ```
 
 ## Project Structure
 
 ```
 servixo/
-├── apps/
-│   ├── web/                    # Next.js frontend
-│   │   ├── src/
-│   │   │   ├── app/            # Next.js App Router pages
-│   │   │   ├── components/     # React components
-│   │   │   ├── lib/            # Utilities, API client, auth
-│   │   │   ├── hooks/          # Custom React hooks
-│   │   │   └── types/          # Frontend-specific types
-│   │   └── public/             # Static assets
-│   │
-│   └── api/                    # Express.js backend
-│       └── src/
-│           ├── auth/           # Better Auth configuration
-│           ├── config/         # Environment & CORS
-│           ├── db/             # Drizzle schema & client
-│           ├── middleware/     # Express middleware
-│           ├── modules/        # Business logic modules
-│           ├── integrations/   # Third-party integrations
-│           ├── routes/         # Route definitions
-│           ├── utils/          # Helpers
-│           └── types/          # Backend-specific types
+├── backend/                    # Express.js REST API
+│   ├── src/
+│   │   ├── auth/               # Better Auth configuration & permissions
+│   │   ├── config/             # Environment & CORS
+│   │   ├── db/                 # Drizzle schema & client
+│   │   ├── middleware/         # Express middleware
+│   │   ├── modules/            # Business logic modules
+│   │   ├── integrations/       # Third-party integrations
+│   │   ├── routes/             # Route definitions
+│   │   ├── schemas/            # Zod validation schemas
+│   │   ├── types/              # Backend types & Express definitions
+│   │   └── utils/              # Helpers
+│   ├── .env.example
+│   ├── package.json
+│   └── tsconfig.json
 │
-└── packages/
-    └── contracts/              # Shared types & schemas
+├── frontend/                   # Next.js frontend
+│   ├── src/
+│   │   ├── app/                # Next.js App Router pages
+│   │   ├── components/         # React components
+│   │   ├── lib/                # Utilities, API client, auth
+│   │   ├── hooks/              # Custom React hooks
+│   │   └── types/              # Frontend types & validation schemas
+│   ├── public/                 # Static assets
+│   ├── .env.example
+│   ├── package.json
+│   └── tsconfig.json
+│
+├── docs/                       # Project documentation
+└── package.json                # Root runner scripts
 ```
 
 ## Environment Variables
 
-See `.env.example` at the project root and `apps/web/.env.example` for required variables.
+See `backend/.env.example` and `frontend/.env.example` for required variables.
 
 **Never commit `.env` files with real credentials.**
-
-## Shared Contracts
-
-The `@servixo/contracts` package is used by both frontend and backend:
-
-```typescript
-import { loginSchema, type UserRole } from "@servixo/contracts";
-```
-
-Changes to contracts automatically reflect in both apps during development.
