@@ -301,7 +301,9 @@ export const activeThemeKey: keyof typeof themePalettes = "warmGold";
  * Helper to get the currently selected palette
  */
 export function getActiveTheme(key: string = activeThemeKey): ThemePreset {
-  return themePalettes[key] || themePalettes.warmGold;
+  const selected = themePalettes[key];
+  if (selected) return selected;
+  return themePalettes["warmGold"]!;
 }
 
 /**

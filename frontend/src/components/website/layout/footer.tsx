@@ -20,7 +20,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="font-body-md text-body-md text-on-surface-variant max-w-sm leading-relaxed">
-              India's trusted subscription-based home services platform. Simplifying home care with predictable visits and approved professionals.
+              India&apos;s trusted subscription-based home services platform. Simplifying home care with predictable visits and approved professionals.
             </p>
             <div className="flex items-center gap-space-xs text-primary font-label-sm text-label-sm bg-surface-container px-space-sm py-space-xs rounded-full w-fit">
               <span className="material-symbols-outlined text-[16px] text-secondary">
@@ -153,7 +153,7 @@ export function Footer() {
           </div>
 
           <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-            India's premier residential care, comprehensive home inspection, and verified technician subscription club.
+            India&apos;s premier residential care, comprehensive home inspection, and verified technician subscription club.
           </p>
 
           <div className="grid grid-cols-2 gap-space-sm pt-1">
