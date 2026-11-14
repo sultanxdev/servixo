@@ -130,7 +130,7 @@ export function Footer() {
             India&apos;s premier residential care, comprehensive home inspection, and verified technician subscription club.
           </p>
 
-          <div className="grid grid-cols-2 gap-space-sm pt-1">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-space-sm pt-1">
             <div className="flex flex-col gap-1">
               <span className="font-label-md text-label-md text-on-surface font-bold">
                 Explore
@@ -150,6 +150,20 @@ export function Footer() {
                 Support
               </span>
               {footer.supportLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+            <div className="flex flex-col gap-1 col-span-2 sm:col-span-1 pt-2 sm:pt-0">
+              <span className="font-label-md text-label-md text-on-surface font-bold">
+                Legal &amp; Transparency
+              </span>
+              {footer.legalLinks.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}

@@ -115,10 +115,25 @@ export default function SignupPage() {
               </div>
             </div>
           </CardContent>
-          <CardFooter className="flex flex-col gap-4">
+          <CardFooter className="flex flex-col gap-3">
             <Button type="submit" className="w-full" disabled={loading}>
               {loading ? "Creating account..." : "Create account"}
             </Button>
+            <p className="text-[12px] text-muted-foreground text-center leading-snug">
+              By registering, you agree to our{" "}
+              <Link href="/terms-and-conditions/" className="text-primary hover:underline font-medium">
+                Terms &amp; Conditions
+              </Link>
+              ,{" "}
+              <Link href="/subscription-terms/" className="text-primary hover:underline font-medium">
+                Subscription Terms
+              </Link>
+              , and acknowledge our{" "}
+              <Link href="/privacy-policy/" className="text-primary hover:underline font-medium">
+                Privacy Policy
+              </Link>
+              .
+            </p>
             <p className="text-sm text-muted-foreground text-center">
               Already have an account?{" "}
               <Link href="/login/" className="text-primary hover:underline">

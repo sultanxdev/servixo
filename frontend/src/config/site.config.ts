@@ -56,8 +56,27 @@ export const siteConfig = {
     defaultPincode: "560103",
     contactEmail: "contact@servixo.in",
     tollFree: "1800-SERVIXO",
-    isoBadge: "ISO 9001:2015 Verified",
-    copyright: "© 2025 Servixo Technologies Private Limited. All rights reserved.",
+    isoBadge: "Verified & Insured Home Care",
+    copyright: "© 2025 Servixo. All rights reserved.",
+  },
+
+  // Central Legal & Transparency Details
+  // Edit these fields to reflect your actual registered entity and infrastructure
+  legal: {
+    lastUpdated: "November 2025",
+    entityName: "[Registered Legal Entity Name]",
+    registeredAddress: "[Registered Office Address]",
+    websiteUrl: "https://servixo.in",
+    privacyEmail: "privacy@servixo.in",
+    supportEmail: "contact@servixo.in",
+    grievanceContact: "[Authorised Grievance Officer]",
+    governingState: "[Approved State and City, India]",
+    databaseProvider: "[Database Provider]",
+    hostingProvider: "[Hosting Provider]",
+    fileStorageProvider: "[File Storage Provider]",
+    backupProvider: "[Backup Provider]",
+    primaryStorageRegion: "[Country and Region]",
+    backupStorageRegion: "[Country and Region]",
   },
 
   // Main Navigation Links
@@ -274,8 +293,8 @@ export const siteConfig = {
           { text: "AC deep clean & diagnostic tune-up", highlighted: true },
           { text: "Deep kitchen & bathroom sanitation" },
           { text: "Plumbing, carpentry & power audits" },
-          { text: "Express 12-hour arrival guarantee", highlighted: true },
-          { text: "Real-time technician GPS tracking" },
+          { text: "Priority scheduled slot allocation", highlighted: true },
+          { text: "Status updates & verified technician details" },
         ],
         buttonText: "Choose Comprehensive Plan",
         buttonHref: "/signup/",
@@ -292,8 +311,8 @@ export const siteConfig = {
         features: [
           { text: "Bi-annual structural inspection" },
           { text: "Dedicated personal residential manager", highlighted: true },
-          { text: "Priority dispatch within 4 hours" },
-          { text: "Extended 60-day revisit warranty" },
+          { text: "Dedicated scheduling coordination" },
+          { text: "Extended revisit support warranty" },
         ],
         buttonText: "Select Estate Tier",
         buttonHref: "/signup/",
@@ -352,10 +371,10 @@ export const siteConfig = {
           "Effortlessly schedule visits with your preferred date and time, specific room instructions, and custom technician preferences.",
       },
       {
-        icon: "route",
-        title: "Live Job Tracking",
+        icon: "fact_check",
+        title: "Transparent Job Status",
         description:
-          "Transparent status from initial dispatch, technician in-transit verification, on-site diagnostics, to digital completion sign-off.",
+          "Clear status updates from confirmation, assigned professional details, on-site diagnostics, to digital completion sign-off.",
       },
       {
         icon: "badge",
@@ -481,9 +500,23 @@ export const siteConfig = {
       { label: "Contact Helpdesk", href: "mailto:contact@servixo.in" },
     ],
     legalLinks: [
-      { label: "Privacy Policy", href: "#" },
-      { label: "Terms & Conditions", href: "#" },
-      { label: "Subscription Terms", href: "#" },
+      {
+        label: "Privacy Policy",
+        href: "/privacy-policy/",
+      },
+      {
+        label: "Terms & Conditions",
+        href: "/terms-and-conditions/",
+      },
+      {
+        label: "Subscription Terms",
+        href: "/subscription-terms/",
+      },
+      {
+        label: "Data Storage & Security",
+        href: "/data-storage/",
+      },
     ],
   },
 };
+
