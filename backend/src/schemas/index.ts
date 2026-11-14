@@ -82,3 +82,4 @@ export type CreateServiceInput = z.infer<typeof createServiceSchema>;
 export type CreatePlanInput = z.infer<typeof createPlanSchema>;
 export type CreateBookingInput = z.infer<typeof createBookingSchema>;
 export type UpdateBookingStatusInput = z.infer<typeof updateBookingStatusSchema>;
+
