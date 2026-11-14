@@ -1,4 +1,4 @@
-import type { UserRole } from "@servixo/contracts";
+import type { UserRole } from "../types/index.js";
 
 export type Permission =
   | "bookings:create"
