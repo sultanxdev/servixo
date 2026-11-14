@@ -10,10 +10,12 @@ export function Footer() {
         <div className="hidden lg:grid grid-cols-12 gap-gutter mb-space-xl">
           <div className="col-span-4 flex flex-col gap-space-md">
             <Link href="/" className="flex items-center gap-space-sm">
-              <div className="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
-                <span className="material-symbols-outlined text-[20px]">
-                  home_repair_service
-                </span>
+              <div className="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center shadow-xs border border-outline-variant/30 overflow-hidden p-1">
+                <img
+                  src="/logo/logo.png"
+                  alt="Servixo Logo"
+                  className="h-8 w-auto object-contain"
+                />
               </div>
               <span className="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">
                 Servixo
@@ -137,11 +139,13 @@ export function Footer() {
         {/* ========================================================================= */}
         <div className="flex lg:hidden flex-col gap-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1.5">
-              <div className="w-7 h-7 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
-                <span className="material-symbols-outlined text-[18px]">
-                  home_repair_service
-                </span>
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center shadow-xs border border-outline-variant/30 overflow-hidden p-1">
+                <img
+                  src="/logo/logo.png"
+                  alt="Servixo Logo"
+                  className="h-6 w-auto object-contain"
+                />
               </div>
               <span className="font-headline-sm text-headline-sm font-bold text-on-surface">
                 Servixo

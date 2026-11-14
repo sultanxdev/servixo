@@ -36,8 +36,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       >
         <div className="flex items-center justify-between p-4 border-b">
           <Link href="/" className="flex items-center gap-2">
-            <Home className="h-5 w-5 text-primary" />
-            <span className="font-bold">Servixo Admin</span>
+            <div className="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center p-0.5 border border-outline-variant/30">
+              <img src="/logo/logo.png" alt="Servixo Logo" className="h-6 w-auto object-contain" />
+            </div>
+            <span className="font-bold text-primary">Servixo Admin</span>
           </Link>
           <button className="lg:hidden" onClick={() => setSidebarOpen(false)}>
             <X className="h-5 w-5" />

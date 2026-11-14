@@ -38,8 +38,10 @@ export default function SignupPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <Link href="/" className="flex items-center justify-center gap-2 mb-4">
-            <Home className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold">Servixo</span>
+            <div className="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center shadow-xs border border-outline-variant/30 overflow-hidden p-1">
+              <img src="/logo/logo.png" alt="Servixo Logo" className="h-8 w-auto object-contain" />
+            </div>
+            <span className="text-xl font-bold text-primary">Servixo</span>
           </Link>
           <CardTitle>Create an account</CardTitle>
           <CardDescription>Get started with Servixo</CardDescription>

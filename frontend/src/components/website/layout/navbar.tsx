@@ -16,11 +16,13 @@ export function Navbar() {
       <header className="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
         {/* DESKTOP HEADER (lg and up) */}
         <div className="hidden lg:flex h-20 max-w-[1280px] mx-auto px-gutter items-center justify-between gap-gutter">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
-              <span className="material-symbols-outlined text-[20px]">
-                home_repair_service
-              </span>
+          <Link href="/" className="flex items-center gap-2.5">
+            <div className="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center shadow-xs border border-outline-variant/30 overflow-hidden p-1">
+              <img
+                src="/logo/logo.png"
+                alt="Servixo Logo"
+                className="h-8 w-auto object-contain"
+              />
             </div>
             <span className="font-headline-md text-headline-md text-primary tracking-tight font-bold">
               Servixo
@@ -108,10 +110,12 @@ export function Navbar() {
               </span>
             </button>
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
-                <span className="material-symbols-outlined text-[20px]">
-                  home_repair_service
-                </span>
+              <div className="w-9 h-9 rounded-xl bg-surface-container-low flex items-center justify-center shadow-xs border border-outline-variant/30 overflow-hidden p-1">
+                <img
+                  src="/logo/logo.png"
+                  alt="Servixo Logo"
+                  className="h-7 w-auto object-contain"
+                />
               </div>
               <span className="font-headline-sm text-headline-sm font-bold tracking-tight text-on-surface">
                 Servixo

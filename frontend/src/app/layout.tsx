@@ -23,6 +23,10 @@ export const metadata: Metadata = {
   title: "Servixo - Home Services Platform | Your Home. Your Services. All in One Plan.",
   description:
     "India's premier residential care and verified technician subscription club. Book trusted home services, manage subscriptions, and get certified professional assistance.",
+  icons: {
+    icon: "/logo/logo.png",
+    apple: "/logo/logo-square.png",
+  },
 };
 
 export const viewport: Viewport = {
