@@ -1,4 +1,4 @@
-import type { UserRole, BookingStatus, SubscriptionStatus, PaymentStatus } from "./index.js";
+import type { UserRole, BookingStatus, SubscriptionStatus } from "./index.js";
 
 // Auth
 export interface LoginRequest {
