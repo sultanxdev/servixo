@@ -2,11 +2,11 @@
 
 ## Overview
 
-Servixo uses a decoupled frontend-backend architecture within a single monorepo managed by PNPM workspaces.
+Servixo uses a simple, decoupled frontend-backend architecture with independent `frontend/` and `backend/` projects.
 
 ```
 ┌─────────────────┐     HTTPS/REST      ┌─────────────────┐
-│   apps/web      │ ──────────────────▶  │   apps/api      │
+│   frontend/     │ ──────────────────▶  │   backend/      │
 │   (Next.js)     │                      │   (Express.js)  │
 │   Static Export │ ◀──────────────────  │   REST API      │
 │   Cloudflare    │     JSON responses   │   Cloudflare    │
@@ -22,7 +22,7 @@ Servixo uses a decoupled frontend-backend architecture within a single monorepo 
 
 ## Frontend
 
-The frontend is a Next.js application configured for **static export** (`output: "export"`). It is deployed on **Cloudflare Pages** as a fully static site.
+The frontend is a Next.js application located in `frontend/` configured for **static export** (`output: "export"`). It is deployed on **Cloudflare Pages** as a fully static site.
 
 Key decisions:
 - No SSR, no API routes, no server actions.
@@ -32,7 +32,7 @@ Key decisions:
 
 ## Backend
 
-The backend is an Express.js 5 application that serves a versioned REST API at `/api/v1/*`.
+The backend is an Express.js 5 application located in `backend/` that serves a versioned REST API at `/api/v1/*`.
 
 Key decisions:
 - Modular architecture: each business domain has its own routes, controllers, services, and validation.
@@ -58,22 +58,21 @@ Better Auth is the sole authentication system. It is configured on the backend a
 - **Schema**: Managed via Drizzle migrations.
 - Better Auth tables (user, session, account, verification) are defined alongside business tables.
 
-## Shared Contracts
+## Type Definitions & Schemas
 
-The `packages/contracts` package contains shared TypeScript types and Zod schemas used by both frontend and backend. It includes:
-- User role definitions
-- Status enums (booking, subscription, payment, payout)
-- API request/response types
-- Validation schemas
+The application uses straightforward, self-contained types and validation schemas:
+- `backend/src/types/` — Status enums (booking, subscription, payment, payout), API request/response types, and Express user types.
+- `backend/src/schemas/` — Zod request validation schemas.
+- `frontend/src/types/` — Corresponding client models and input validation schemas.
 
-This package has no runtime dependencies on the database or any backend service.
+Each project manages its own dependencies without monorepo workspace linking.
 
 ## Deployment
 
 | Component | Platform | Notes |
 |-----------|----------|-------|
-| Frontend | Cloudflare Pages | Static files from `out/` |
-| Backend | Cloudflare Workers | Express via Workers adapter |
+| Frontend | Cloudflare Pages | Static files from `frontend/out/` |
+| Backend | Cloudflare Workers | Express via Workers adapter (`backend/src/worker.ts`) |
 | Database | Neon PostgreSQL | Serverless, with Hyperdrive |
 | Documents | Cloudflare R2 | Private bucket |
 | Payments | Razorpay | Server-side integration |

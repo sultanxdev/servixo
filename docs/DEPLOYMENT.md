@@ -16,8 +16,8 @@
 | Setting | Value |
 |---------|-------|
 | Framework preset | None |
-| Build command | `cd apps/web && pnpm build` |
-| Build output directory | `apps/web/out` |
+| Build command | `cd frontend && pnpm build` |
+| Build output directory | `frontend/out` |
 | Root directory | `/` |
 
 ### Environment Variables
@@ -41,13 +41,13 @@ Configure `servixo.com` and `www.servixo.com` in the Cloudflare Pages dashboard.
 ### Deploy
 
 ```bash
-cd apps/api
+cd backend
 wrangler deploy
 ```
 
 ### Configuration
 
-The `wrangler.jsonc` file in `apps/api/` defines:
+The `wrangler.jsonc` file in `backend/` defines:
 - Worker name and entry point
 - Compatibility flags (`nodejs_compat`)
 - Hyperdrive binding
@@ -119,7 +119,8 @@ wrangler r2 bucket create servixo-documents
 Before deploying, run migrations against the production database:
 
 ```bash
-DATABASE_URL="production-connection-string" pnpm --filter @servixo/api db:migrate
+cd backend
+DATABASE_URL="production-connection-string" pnpm db:migrate
 ```
 
 ## Production Checklist

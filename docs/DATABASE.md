@@ -64,17 +64,19 @@ The `user` table includes a custom `role` column with values: `customer`, `profe
 ## Migrations
 
 ```bash
+cd backend
+
 # Generate migration from schema changes
-pnpm --filter @servixo/api db:generate
+pnpm db:generate
 
 # Run pending migrations
-pnpm --filter @servixo/api db:migrate
+pnpm db:migrate
 
 # Push schema directly (dev only)
-pnpm --filter @servixo/api db:push
+pnpm db:push
 
 # Open Drizzle Studio
-pnpm --filter @servixo/api db:studio
+pnpm db:studio
 ```
 
 ## Entity Relationship Summary

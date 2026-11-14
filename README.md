@@ -6,13 +6,12 @@ Servixo connects customers with verified home service professionals. Customers c
 
 ## Architecture
 
-Servixo is a monorepo containing:
+Servixo uses a simple, decoupled frontend and backend architecture:
 
-| Package | Description |
-|---------|-------------|
-| `apps/web` | Next.js frontend (static export for Cloudflare Pages) |
-| `apps/api` | Express.js 5 backend (Node.js / Cloudflare Workers) |
-| `packages/contracts` | Shared TypeScript types and Zod schemas |
+| Directory | Description | Tech Stack |
+|-----------|-------------|------------|
+| `frontend` | Next.js frontend (static export for Cloudflare Pages) | Next.js 15, React 19, Tailwind CSS, TanStack Query |
+| `backend` | Express.js 5 backend (Node.js / Cloudflare Workers) | Express 5, Drizzle ORM, PostgreSQL (Neon), Better Auth |
 
 ## Tech Stack
 
@@ -49,53 +48,94 @@ Servixo is a monorepo containing:
 ## Prerequisites
 
 - Node.js >= 20
-- PNPM >= 9
+- PNPM >= 9 (or NPM)
 - PostgreSQL (or a Neon account)
 
 ## Getting Started
 
+### 1. Backend Setup
+
 ```bash
-# Clone the repository
-git clone <repo-url>
-cd servixo
+cd backend
 
 # Install dependencies
 pnpm install
 
 # Set up environment variables
-cp .env.example apps/api/.env
-cp apps/web/.env.example apps/web/.env.local
+cp .env.example .env
 
-# Start the backend (port 3001)
-pnpm dev:api
+# Run database migrations (or push)
+pnpm db:push
 
-# Start the frontend (port 3000)
-pnpm dev:web
+# Start backend dev server (port 3001)
+pnpm dev
 ```
 
-## Available Scripts
+### 2. Frontend Setup
+
+```bash
+cd frontend
+
+# Install dependencies
+pnpm install
+
+# Set up environment variables
+cp .env.example .env.local
+
+# Start frontend dev server (port 3000)
+pnpm dev
+```
+
+### 3. Root Helper Scripts
+
+From the repository root, you can also run:
 
 | Command | Description |
 |---------|-------------|
-| `pnpm dev:web` | Start the frontend dev server |
-| `pnpm dev:api` | Start the backend dev server |
-| `pnpm build:web` | Build frontend for production |
-| `pnpm build:api` | Typecheck and compile backend |
-| `pnpm typecheck` | Run TypeScript checks across all packages |
-| `pnpm lint` | Lint all packages |
+| `pnpm dev:backend` | Start backend dev server |
+| `pnpm dev:frontend` | Start frontend dev server |
+| `pnpm build:backend` | Build backend for production |
+| `pnpm build:frontend` | Build frontend for production |
+| `pnpm typecheck:backend` | Typecheck backend |
+| `pnpm typecheck:frontend` | Typecheck frontend |
+| `pnpm lint:backend` | Lint backend |
+| `pnpm lint:frontend` | Lint frontend |
+| `pnpm install:all` | Install dependencies for both apps |
 
 ## Project Structure
 
 ```
 servixo/
-├── apps/
-│   ├── web/          # Next.js frontend
-│   └── api/          # Express.js backend
-├── packages/
-│   └── contracts/    # Shared types & schemas
+├── backend/          # Express.js REST API
+│   ├── src/
+│   │   ├── auth/         # Better Auth & permissions
+│   │   ├── config/       # Environment & CORS configuration
+│   │   ├── db/           # Drizzle ORM schemas & client
+│   │   ├── middleware/   # Auth, role check, validation middleware
+│   │   ├── modules/      # Business logic modules
+│   │   ├── routes/       # API endpoints
+│   │   ├── schemas/      # Zod validation schemas
+│   │   ├── types/        # Backend TypeScript types
+│   │   └── utils/        # Utility functions
+│   ├── .env.example
+│   ├── drizzle.config.ts
+│   ├── package.json
+│   └── tsconfig.json
+│
+├── frontend/         # Next.js web application
+│   ├── src/
+│   │   ├── app/          # App router pages
+│   │   ├── components/   # UI components
+│   │   ├── lib/          # API & auth clients, utilities
+│   │   └── types/        # Frontend TypeScript types & schemas
+│   ├── public/           # Static assets
+│   ├── .env.example
+│   ├── next.config.ts
+│   ├── package.json
+│   └── tsconfig.json
+│
 ├── docs/             # Documentation
-├── pnpm-workspace.yaml
-└── tsconfig.base.json
+└── package.json      # Root runner scripts
 ```
 
 ## Documentation
