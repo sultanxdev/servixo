@@ -43,4 +43,6 @@ drizzle/meta/
 # Misc
 *.tgz
 .cache/
+.agents
+
 

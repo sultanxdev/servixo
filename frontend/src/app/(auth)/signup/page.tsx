@@ -38,8 +38,10 @@ export default function SignupPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <Link href="/" className="flex items-center justify-center gap-2 mb-4">
-            <Home className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold">Servixo</span>
+            <div className="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center shadow-xs border border-outline-variant/30 overflow-hidden p-1">
+              <img src="/logo/logo.png" alt="Servixo Logo" className="h-8 w-auto object-contain" />
+            </div>
+            <span className="text-xl font-bold text-primary">Servixo</span>
           </Link>
           <CardTitle>Create an account</CardTitle>
           <CardDescription>Get started with Servixo</CardDescription>
@@ -113,10 +115,25 @@ export default function SignupPage() {
               </div>
             </div>
           </CardContent>
-          <CardFooter className="flex flex-col gap-4">
+          <CardFooter className="flex flex-col gap-3">
             <Button type="submit" className="w-full" disabled={loading}>
               {loading ? "Creating account..." : "Create account"}
             </Button>
+            <p className="text-[12px] text-muted-foreground text-center leading-snug">
+              By registering, you agree to our{" "}
+              <Link href="/terms-and-conditions/" className="text-primary hover:underline font-medium">
+                Terms &amp; Conditions
+              </Link>
+              ,{" "}
+              <Link href="/subscription-terms/" className="text-primary hover:underline font-medium">
+                Subscription Terms
+              </Link>
+              , and acknowledge our{" "}
+              <Link href="/privacy-policy/" className="text-primary hover:underline font-medium">
+                Privacy Policy
+              </Link>
+              .
+            </p>
             <p className="text-sm text-muted-foreground text-center">
               Already have an account?{" "}
               <Link href="/login/" className="text-primary hover:underline">

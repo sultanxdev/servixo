@@ -21,6 +21,17 @@ export default function BecomeProfessionalPage() {
           <Link href="/signup/" className="mt-8 inline-block">
             <Button size="lg">Apply Now</Button>
           </Link>
+          <p className="text-xs text-muted-foreground mt-3">
+            All professional applications and documents are securely handled in accordance with our{" "}
+            <Link href="/terms-and-conditions/" className="text-primary hover:underline">
+              Terms &amp; Conditions
+            </Link>{" "}
+            and{" "}
+            <Link href="/data-storage/" className="text-primary hover:underline">
+              Data Storage &amp; Security
+            </Link>{" "}
+            policies.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
