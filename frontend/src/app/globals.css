@@ -4,56 +4,112 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --color-primary: #715911;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #8c7129;
+    --color-on-primary-container: #fffbff;
+    --color-primary-fixed: #ffdf94;
+    --color-primary-fixed-dim: #e4c372;
+    --color-on-primary-fixed: #251a00;
+    --color-on-primary-fixed-variant: #594400;
+    --color-secondary: #50652a;
+    --color-on-secondary: #ffffff;
+    --color-secondary-container: #d2eca2;
+    --color-on-secondary-container: #566b30;
+    --color-secondary-fixed: #d2eca2;
+    --color-secondary-fixed-dim: #b7cf89;
+    --color-on-secondary-fixed: #131f00;
+    --color-on-secondary-fixed-variant: #394d15;
+    --color-tertiary: #4c5c8f;
+    --color-on-tertiary: #ffffff;
+    --color-tertiary-container: #6475a9;
+    --color-on-tertiary-container: #000417;
+    --color-tertiary-fixed: #dbe1ff;
+    --color-tertiary-fixed-dim: #b4c5fe;
+    --color-on-tertiary-fixed: #021848;
+    --color-on-tertiary-fixed-variant: #344575;
+    --color-error: #ba1a1a;
+    --color-on-error: #ffffff;
+    --color-error-container: #ffdad6;
+    --color-on-error-container: #93000a;
+    --color-surface: #fff8f2;
+    --color-on-surface: #1f1b15;
+    --color-surface-variant: #eae1d7;
+    --color-on-surface-variant: #4d4638;
+    --color-surface-dim: #e1d9cf;
+    --color-surface-bright: #fff8f2;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #fbf2e8;
+    --color-surface-container: #f5ede3;
+    --color-surface-container-high: #efe7dd;
+    --color-surface-container-highest: #eae1d7;
+    --color-inverse-surface: #343029;
+    --color-inverse-on-surface: #f8efe5;
+    --color-inverse-primary: #e4c372;
+    --color-outline: #7f7666;
+    --color-outline-variant: #d0c5b3;
+    --color-background: #fff8f2;
+    --color-on-background: #1f1b15;
+    --color-surface-tint: #745b13;
+
+    /* Shadcn compatibility tokens */
+    --background: 36 100% 97%;
+    --foreground: 36 18% 10%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 36 18% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
+    --popover-foreground: 36 18% 10%;
+    --primary: 45 74% 26%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 82 41% 28%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 36 33% 94%;
+    --muted-foreground: 39 12% 26%;
+    --accent: 36 33% 94%;
+    --accent-foreground: 36 18% 10%;
+    --destructive: 0 75% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 37 20% 76%;
+    --input: 37 20% 76%;
+    --ring: 45 74% 26%;
+    --radius: 0.75rem;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
+  html,
   body {
-    @apply bg-background text-foreground;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    overscroll-behavior: none;
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
+    user-select: none;
   }
 }
